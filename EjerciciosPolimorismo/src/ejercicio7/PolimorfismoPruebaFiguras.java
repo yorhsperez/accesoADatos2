@@ -9,11 +9,13 @@ public class PolimorfismoPruebaFiguras {
         PolimorfismoFigura miCirculo = new PolimorfismoCirculo(3d,"red",posicion);
         PolimorfismoFigura miRectangulo = new PolimorfismoRectangulo(lados,"blue",posicion);
 
-        System.out.println(miCirculo.perimetro());
-        System.out.println(miRectangulo.perimetro());
-        //////
+        System.out.println("Mi circulo perimetro: "+miCirculo.perimetro());
+        System.out.println("Mi rectangulo perimetro: "+miRectangulo.perimetro());
+
+        //¡Atención acceso a los métodos de la subclase!!!!!
         PolimorfismoCirculo instanciaCirculo = (PolimorfismoCirculo) miCirculo;
         System.out.println(instanciaCirculo.getRadio());
+
 
         System.out.println(((PolimorfismoCirculo)miCirculo).getRadio());
         int[]lados2 = (((PolimorfismoRectangulo)miRectangulo).getPosicion());

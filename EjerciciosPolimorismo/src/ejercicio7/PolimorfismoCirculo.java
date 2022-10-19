@@ -30,6 +30,7 @@ public class PolimorfismoCirculo extends PolimorfismoFigura {
 
     @Override
     public double perimetro() {
-        return 0;
+
+        return (2*this.getRadio())*Math.PI;
     }
 }
