@@ -18,6 +18,7 @@ public class EmpleadoProduccion extends Asalariado {
 
     public double getSalario(){
 
-        return 0;
+
+        return super.getSalario()+((super.getSalario()*15)/100);
     }
 }

@@ -4,13 +4,13 @@ public class Asalariado {
     private String nombre;
     private long dni;
     private int diasVacaciones;
-    private double salarioBase;
+    private double salario;
 
     public Asalariado(String nombre,long dni,int diasVacaciones,double salarioBase){
         this.nombre=nombre;
         this.dni=dni;
         this.diasVacaciones=diasVacaciones;
-        this.salarioBase=salarioBase;
+        this.salario =salarioBase;
     }
 
     public String getNombre() {
@@ -37,11 +37,11 @@ public class Asalariado {
         this.diasVacaciones = diasVacaciones;
     }
 
-    public double getSalarioBase() {
-        return salarioBase;
+    public double getSalario() {
+        return salario;
     }
 
-    public void setSalarioBase(double salarioBase) {
-        this.salarioBase = salarioBase;
+    public void setSalario(double salario) {
+        this.salario = salario;
     }
 }
