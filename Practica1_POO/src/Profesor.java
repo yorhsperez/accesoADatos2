@@ -1,36 +1,38 @@
 import java.util.ArrayList;
 
 public class Profesor extends Persona {
-   //atributos curso y lista de notas arrayList double
+    //atributos curso y lista de notas arrayList double
     private Curso curso;
-    private ArrayList<Double> listaNotas;
+   private ArrayList<String>listaDeAsignaturas;
 
-    //getter y setter
     public Curso getCurso() {
         return curso;
     }
+
     public void setCurso(Curso curso) {
         this.curso = curso;
     }
-    public ArrayList<Double> getListaNotas() {
-        return listaNotas;
-    }
-    public void setListaNotas(ArrayList<Double> listaNotas) {
-        this.listaNotas = listaNotas;
+
+    public ArrayList<String> getListaDeAsignaturas() {
+        return listaDeAsignaturas;
     }
 
-    //metodo añadir asignatura
-    public void añadirAsignatura(Curso curso){
-        this.curso=curso;
-    }
-    //metodo eliminar asignatura
-    public void eliminarAsignatura(Curso curso){
-        this.curso=null;
+    public void setListaDeAsignaturas(ArrayList<String> listaDeAsignaturas) {
+        this.listaDeAsignaturas = listaDeAsignaturas;
     }
 
-    //metodo toString
-    public String toString(){
-       return "Curso: "+curso+" Lista de notas: "+listaNotas;
+    //metodo para añadir asignaturas
+    public void añadirAsignatura(String asignatura){
+        listaDeAsignaturas.add(asignatura);
+    }
+    //metodo para eliminar asignaturas
+    public void eliminarAsignatura(String asignatura){
+        listaDeAsignaturas.remove(asignatura);
     }
 
+    //metodo toString de Profesor
+    @Override
+    public String toString() {
+        return "Profesor{" + "curso=" + curso + ", listaDeAsignaturas=" + listaDeAsignaturas + '}';
+    }
 }

@@ -1,6 +1,7 @@
 import java.util.ArrayList;
+import java.util.Comparator;
 
-public class ListaAlumnos {
+public class ListaAlumnos implements ILista {
     //arrayLiat de alumnos
     private ArrayList<Alumno> listaAlumnos;
 
@@ -20,4 +21,67 @@ public class ListaAlumnos {
         System.out.println("Eliga una opcion:");
         System.out.println("----------------------------------------");
     }
+
+    @Override
+    public void añadir(Object objeto) {
+        listaAlumnos.add((Alumno)objeto);
+
+    }
+
+    @Override
+    public void buscar(Object objeto) {
+        //buscar alumno y mostrar su toString
+        for (Alumno alumno : listaAlumnos) {
+            if(alumno.equals(objeto)){
+                System.out.println(alumno.toString());
+            }
+        }
+    }
+
+    @Override
+    public void eliminar(Object objeto) {
+        listaAlumnos.remove((Alumno)objeto);
+    }
+
+    @Override
+    public void listar() {
+        //listar alumnos
+        for (Alumno alumno : listaAlumnos) {
+            System.out.println(alumno.toString());
+        }
+
+    }
+    //ordenar alfabeticamente objeto alumno de arrayList
+    public void ordenarAlfabeticamente(){
+        listaAlumnos.sort(Comparator.comparing(Persona::getNombre));
+    }
+
+    //metodo para añadir nota al objeto alumno
+    public void añadirNota(Alumno alumno,double nota){
+        alumno.getListaNotas().add(nota);
+    }
+
+    //metodo eliminar todas las notas de un alumno
+    public void eliminarNotas(Alumno alumno){
+        alumno.getListaNotas().clear();
+    }
+
+    //metodo listar alumnos aprobados que tienen media > 5.0
+    public void listarAprobados(){
+        for (Alumno alumno : listaAlumnos) {
+            if(alumno.calcularMedia()>5.0){
+                System.out.println(alumno.toString());
+            }
+        }
+    }
+
+    //metodo listar alumnos suspensos media < 5.0
+    public void listarSuspensos(){
+        for (Alumno alumno : listaAlumnos) {
+            if(alumno.calcularMedia()<5.0){
+                System.out.println(alumno.toString());
+            }
+        }
+    }
+
 }

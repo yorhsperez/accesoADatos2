@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 
-public class ListaProfesores {
+public class ListaProfesores implements ILista {
     //arrayList de profesores
     private ArrayList<Profesor> listaProfesores;
 
@@ -20,4 +20,53 @@ public class ListaProfesores {
         System.out.println("----------------------------------------");
 
     }
+
+    @Override
+    public void añadir(Object objeto) {
+        listaProfesores.add((Profesor)objeto);
+    }
+
+    @Override
+    public void buscar(Object objeto) {
+        //buscar profesor y mostrar su toString
+        for (Profesor profesor : listaProfesores) {
+            if(profesor.equals(objeto)){
+                System.out.println(profesor.toString());
+            }
+        }
+    }
+
+    @Override
+    public void eliminar(Object objeto) {
+        listaProfesores.remove((Profesor)objeto);
+    }
+
+    @Override
+    public void listar() {
+        //listar profesores
+        for (Profesor profesor : listaProfesores) {
+            System.out.println(profesor.toString());
+        }
+
+    }
+
+    //Metodo parta mostrar un profesor con su toString
+    public void mostrarProfesor(Profesor profesor){
+        System.out.println(profesor.toString());
+    }
+
+    //Metodo para eliminar asignaturas de un profesor
+    public void eliminarAsignaturas(Profesor profesor,String asignatura){
+        profesor.getListaDeAsignaturas().remove(asignatura);
+    }
+
+    //metodo listar profesores por asignatura
+    public void listarProfesoresPorAsignatura(String asignatura){
+        for (Profesor profesor : listaProfesores) {
+            if(profesor.getListaDeAsignaturas().contains(asignatura)){
+                System.out.println(profesor.toString());
+            }
+        }
+    }
+
 }
