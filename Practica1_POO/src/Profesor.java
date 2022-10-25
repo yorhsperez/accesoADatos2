@@ -30,6 +30,8 @@ public class Profesor extends Persona {
         listaDeAsignaturas.remove(asignatura);
     }
 
+    //metodo isTutor
+
     //metodo toString de Profesor
     @Override
     public String toString() {

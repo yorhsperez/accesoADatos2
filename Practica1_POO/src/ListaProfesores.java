@@ -27,18 +27,22 @@ public class ListaProfesores implements ILista {
     }
 
     @Override
-    public void buscar(Object objeto) {
-        //buscar profesor y mostrar su toString
+    public void buscar(String dni) {
         for (Profesor profesor : listaProfesores) {
-            if(profesor.equals(objeto)){
-                System.out.println(profesor.toString());
+            if (profesor.getDni().equals(dni)) {
+                System.out.println(profesor);
             }
         }
     }
 
     @Override
-    public void eliminar(Object objeto) {
-        listaProfesores.remove((Profesor)objeto);
+    public void eliminar(String dni) {
+        //eliminar profesor
+        for (Profesor profesor : listaProfesores) {
+            if(profesor.getDni().equals(dni)){
+                listaProfesores.remove(profesor);
+            }
+        }
     }
 
     @Override
@@ -68,5 +72,14 @@ public class ListaProfesores implements ILista {
             }
         }
     }
+
+    //metodo listar tutores
+//    public void listarTutores(){
+//        for (Profesor profesor : listaProfesores) {
+//            if(profesor.isTutor()){
+//                System.out.println(profesor.toString());
+//            }
+//        }
+//    }
 
 }

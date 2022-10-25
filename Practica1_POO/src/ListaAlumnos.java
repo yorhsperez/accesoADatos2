@@ -29,18 +29,24 @@ public class ListaAlumnos implements ILista {
     }
 
     @Override
-    public void buscar(Object objeto) {
+    public void buscar(String dni) {
         //buscar alumno y mostrar su toString
         for (Alumno alumno : listaAlumnos) {
-            if(alumno.equals(objeto)){
+            if(alumno.getDni().equals(dni)){
                 System.out.println(alumno.toString());
             }
         }
     }
 
     @Override
-    public void eliminar(Object objeto) {
-        listaAlumnos.remove((Alumno)objeto);
+    public void eliminar(String dni) {
+        //eliminar alumno
+        for (Alumno alumno : listaAlumnos) {
+            if(alumno.getDni().equals(dni)){
+                listaAlumnos.remove(alumno);
+            }
+        }
+
     }
 
     @Override
@@ -53,7 +59,10 @@ public class ListaAlumnos implements ILista {
     }
     //ordenar alfabeticamente objeto alumno de arrayList
     public void ordenarAlfabeticamente(){
-        listaAlumnos.sort(Comparator.comparing(Persona::getNombre));
+        //mostrar el arraylist de alumnos por su nombre
+        listaAlumnos.sort(Comparator.comparing(Alumno::getNombre));
+        //y mostrar el arraylist
+
     }
 
     //metodo para añadir nota al objeto alumno
@@ -83,5 +92,8 @@ public class ListaAlumnos implements ILista {
             }
         }
     }
+
+
+
 
 }

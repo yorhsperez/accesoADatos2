@@ -23,19 +23,23 @@ public class ListaCursos implements ILista {
     }
 
     @Override
-    public void buscar(Object objeto) {
-        //buscar curso y mostrar su toString
+    public void buscar(String codigoCurso) {
+        //buscar curso
         for (Curso curso : listaCursos) {
-            if(curso.equals(objeto)){
-                System.out.println(curso.toString());
+            if (curso.getCodigo().equals(codigoCurso)) {
+                System.out.println(curso);
             }
         }
     }
 
     @Override
-    public void eliminar(Object objeto) {
-        //eliminar curso del arrayList
-        listaCursos.remove((Curso)objeto);
+    public void eliminar(String codigoCurso) {
+        //eliminar curso
+        for (Curso curso : listaCursos) {
+            if(curso.getCodigo().equals(codigoCurso)){
+                listaCursos.remove(curso);
+            }
+        }
 
     }
 
