@@ -1,12 +1,15 @@
 import java.util.ArrayList;
 import java.util.Objects;
 
-public class ListaProfesores implements ILista {
-    //arrayList de profesores
+public class ListaProfesores  implements ILista {
+
 
 
     private ArrayList<Profesor> listaProfesores = new ArrayList<>();
-    ListaCursos listaCursos = new ListaCursos();
+
+
+
+
 
     public void gestionProfesores() {
         System.out.println("---------GESTION DE PROFESORES---------");
@@ -113,10 +116,24 @@ public class ListaProfesores implements ILista {
         }
     }
 
-    public void esTutor() {
-        System.out.println(listaCursos.getListaCursos().size());
+    //metodo mostrar progesores tutores
+    public void mostrarProfesoresTutores() {
+        for (Profesor profesor : listaProfesores) {
+            if (profesor.getRespuestaTutor().equalsIgnoreCase("si")) {
+                System.out.println(profesor.toString());
+            }
+        }
     }
 
+    ///getterlistaProfesores
+    public ArrayList<Profesor> getListaProfesores() {
+        return listaProfesores;
     }
+    //setterlistaProfesores
+    public void setListaProfesores(ArrayList<Profesor> listaProfesores) {
+        this.listaProfesores = listaProfesores;
+    }
+
+}
 
 

@@ -1,9 +1,9 @@
 import java.util.ArrayList;
+import java.util.ConcurrentModificationException;
 
 public class ListaCursos implements ILista {
     //arrayList de Cursos
     private ArrayList<Curso> listaCursos = new ArrayList<>();
-
 
 
     //metodo lista submenu
@@ -36,11 +36,20 @@ public class ListaCursos implements ILista {
 
     @Override
     public void eliminar(String codigoCurso) {
-        //eliminar curso
+        //eliminar objeto curso que tenga el codigo que le pasamos
+
+        try {
+
+
         for (Curso curso : listaCursos) {
-            if (curso.getCodigo().equals(codigoCurso)) {
+            if (curso.getCodigo().equalsIgnoreCase(codigoCurso)) {
+                System.out.println("Curso eliminado es "+curso.toString());
                 listaCursos.remove(curso);
             }
+        }
+
+        }catch (ConcurrentModificationException e){
+            System.out.println("Eliminado");
         }
 
     }
@@ -61,21 +70,39 @@ public class ListaCursos implements ILista {
 
 
     //metodo para volver a true curso.isHayTutor() a true solo si esta en false
-    public void volverATrue(String codigoCurso,String dniProfesor) {
-        for (Curso curso : listaCursos) {
-            if (curso.getCodigo().equalsIgnoreCase(codigoCurso)) {
-                if(!curso.isHayTutor()){
-                    curso.setHayTutor(true);
-                    curso.setDniTutor(dniProfesor);
 
-                }else {
-                    System.out.println("Ya hay un tutor asignado a este curso");
+
+    //metodo para mostrar el dni del tutor de un curso
+
+    public void añadirTutorAlCurso(String dniProfesor, String codigoCurso, String respuesta) {
+
+        if (respuesta.equalsIgnoreCase("SI")) {
+
+
+            for (Curso curso : listaCursos) {
+                if (curso.getDniTutor().equalsIgnoreCase("no")) {
+
+
+                    if (curso.getCodigo().equalsIgnoreCase(codigoCurso)) {
+                        curso.setDniTutor(dniProfesor);
+                    } else if (curso.getDniTutor().length()>2) {
+                        System.out.println("El curso ya tiene tutor.");
+                    }
                 }
 
             }
         }
     }
 
-    //metodo para mostrar el dni del tutor de un curso
+    //metodo para definir tutor
+    public void definirTutor(String dniProfesor) {
+        for (Curso curso : listaCursos) {
+            if(curso.getDniTutor().equalsIgnoreCase(dniProfesor)){
+                curso.definirTutor(dniProfesor);
+
+            }
+        }
+    }
 
 }
+

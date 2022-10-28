@@ -1,4 +1,4 @@
-public class Curso {
+public class Curso extends Profesor {
     //atributos codigo y nombre
     private String codigo;
     private String nombre;
@@ -12,6 +12,11 @@ public class Curso {
     public Curso(String codigo, String nombre) {
         this.codigo = codigo;
         this.nombre = nombre;
+        this.dniTutor = "NO";
+
+    }
+    public Curso(){
+
     }
 
     //setter dniTutor
@@ -51,10 +56,18 @@ public class Curso {
     }
 
 
+    //metodo que si dniTutor es igual a Profesor.getDni() , definir profesor.respuestaTutor como "SI"
+    public void definirTutor(String dniProfesor){
+        if (dniTutor.equalsIgnoreCase(dniProfesor)){
+            setRespuestaTutor("SI");
+        }
+    }
+
+
 
     //metodo toString
     public String toString(){
-        return "Codigo: "+codigo+" Nombre Curso: "+nombre+" Hay Tutor: "+hayTutor;
+        return "Codigo: "+codigo+" Nombre Curso: "+nombre+" Tutor: "+dniTutor;
     }
 
 

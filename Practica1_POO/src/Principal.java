@@ -6,12 +6,27 @@ import java.util.Scanner;
 public class Principal {
     Scanner sc = new Scanner(System.in);
     //arrayLisr de alumnos
-    ListaAlumnos listaAlumnos=new ListaAlumnos();
-    ListaProfesores listaProfesores=new ListaProfesores();
-    ListaCursos listaCursos=new ListaCursos();
+    public ListaAlumnos listaAlumnos=new ListaAlumnos();
+    public ListaProfesores listaProfesores=new ListaProfesores();
+    public ListaCursos listaCursos=new ListaCursos();
 
 
+    public void definirProfesorComoTutor(String dniProfesor, String respuesta) {
+        if (respuesta.equalsIgnoreCase("SI")) {
 
+
+            for (Curso curso : listaCursos.getListaCursos()) {
+                if (curso.getDniTutor().equalsIgnoreCase(dniProfesor)) {
+                    for (Profesor profesor : listaProfesores.getListaProfesores()) {
+                        if (profesor.getDni().equalsIgnoreCase(dniProfesor)) {
+                            profesor.setRespuestaTutor("SI");
+                        }
+                    }
+                }
+
+            }
+        }
+    }
 
     public void menuPrincipal() {
         System.out.println("---------MENU PRINCIPAL---------");
@@ -52,19 +67,22 @@ public class Principal {
         int opcion = sc.nextInt();
         switch (opcion) {
             case 1:
+                sc.nextLine();
                 System.out.println("Introduzca el codigo del curso:");
-                String codigoCurso = sc.next();
+                String codigoCurso = sc.nextLine();
                 System.out.println("Introduzca el nombre del curso:");
-                String nombreCurso = sc.next();
+                String nombreCurso = sc.nextLine();
                 listaCursos.añadir(new Curso(codigoCurso, nombreCurso));
 
                 break;
             case 2:
+                sc.nextLine();
                 System.out.println("Introduzca el codigo del curso:");
-                String codigoCursoEliminar = sc.next();
-                listaCursos.eliminar(codigoCursoEliminar);
+                String codigoCursoEliminarr1 = sc.nextLine();
+                listaCursos.eliminar(codigoCursoEliminarr1);
                 break;
             case 3:
+                sc.nextLine();
                 listaCursos.listar();
 
 
@@ -72,8 +90,9 @@ public class Principal {
 
                 break;
             case 4:
+                sc.nextLine();
                 System.out.println("Introduzca el codigo del curso:");
-                String codigoCursoBuscar = sc.next();
+                String codigoCursoBuscar = sc.nextLine();
                 listaAlumnos.listarAlumnosDeUnCurso(codigoCursoBuscar);
                 break;
             case 0:
@@ -185,8 +204,9 @@ public class Principal {
                     listaProfesores.añadir(new Profesor(nombreProfesor, dniProfesor, telefonoProfesor,codigoCurso));
                     System.out.println("Es tutor del curso? (SI/NO)");
                     String tutor = sc.nextLine();
-                    listaCursos.volverATrue(codigoCurso,dniProfesor);
-                   // listaProfesores.comprobarTutor(dniProfesor);
+                    listaCursos.añadirTutorAlCurso(dniProfesor,codigoCurso,tutor);
+                    definirProfesorComoTutor(dniProfesor,tutor);
+
 
                     break;
                 case 2:

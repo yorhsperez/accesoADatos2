@@ -49,7 +49,7 @@ public class Alumno extends Persona {
 
    //metodo toString de Alumno con datos de persona
     public String toString(){
-        return "Alumno{" + "nombre=" + nombre + ", dni=" + dni + ", telefono=" + telefono + ", curso=" + curso +'}';
+        return "Alumno{" + "nombre=" + nombre + ", dni=" + dni + ", telefono=" + telefono + ", curso=" + curso.getNombre() +'}';
     }
 
 
