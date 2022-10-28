@@ -13,6 +13,7 @@ public class ListaCursos implements ILista {
         System.out.println("2. Eliminar curso");
         System.out.println("3. Listar cursos");
         System.out.println("4. Mostrar alumnos de un curso");
+        System.out.println("5. Buscar curso");
         System.out.println("0. Salir");
         System.out.println("Eliga una opcion:");
         System.out.println("----------------------------------------");
@@ -100,6 +101,15 @@ public class ListaCursos implements ILista {
             if(curso.getDniTutor().equalsIgnoreCase(dniProfesor)){
                 curso.definirTutor(dniProfesor);
 
+            }
+        }
+    }
+
+    //metodo buscar curso por codigo
+    public void buscarCursoPorCodigo(String codigoCurso){
+        for (Curso curso : listaCursos) {
+            if(curso.getCodigo().equalsIgnoreCase(codigoCurso)){
+                System.out.println(curso.toString());
             }
         }
     }

@@ -86,7 +86,6 @@ public class Principal {
                 listaCursos.listar();
 
 
-               //mostrar en un JOptionPane
 
                 break;
             case 4:
@@ -94,6 +93,12 @@ public class Principal {
                 System.out.println("Introduzca el codigo del curso:");
                 String codigoCursoBuscar = sc.nextLine();
                 listaAlumnos.listarAlumnosDeUnCurso(codigoCursoBuscar);
+                break;
+            case 5:
+                sc.nextLine();
+                System.out.println("Introduzca el codigo del curso:");
+                String codigoCursoBuscar1 = sc.nextLine();
+                listaCursos.buscar(codigoCursoBuscar1);
                 break;
             case 0:
                 menuPrincipal();
