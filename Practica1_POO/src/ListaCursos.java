@@ -2,7 +2,7 @@ import java.util.ArrayList;
 
 public class ListaCursos implements ILista {
     //arrayList de Cursos
-    private ArrayList<Curso> listaCursos;
+    private ArrayList<Curso> listaCursos=new ArrayList<>();
 
     //metodo lista submenu
     public void gestionDeCursos(){
@@ -16,9 +16,11 @@ public class ListaCursos implements ILista {
         System.out.println("----------------------------------------");
     }
 
+
+
+
     @Override
     public void añadir(Object objeto) {
-        //añadir curso al arrayList
         listaCursos.add((Curso)objeto);
     }
 
@@ -51,4 +53,7 @@ public class ListaCursos implements ILista {
         }
 
     }
+
+    //listar alumnos de un curso
+
 }

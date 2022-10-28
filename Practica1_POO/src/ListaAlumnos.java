@@ -3,7 +3,7 @@ import java.util.Comparator;
 
 public class ListaAlumnos implements ILista {
     //arrayLiat de alumnos
-    private ArrayList<Alumno> listaAlumnos;
+    private ArrayList<Alumno> listaAlumnos = new ArrayList<>();
 
     public void gestionAlumnos(){
         System.out.println("---------GESTION DE ALUMNOS---------");
@@ -65,29 +65,56 @@ public class ListaAlumnos implements ILista {
 
     }
 
-    //metodo para añadir nota al objeto alumno
-    public void añadirNota(Alumno alumno,double nota){
-        alumno.getListaNotas().add(nota);
-    }
-
-    //metodo eliminar todas las notas de un alumno
-    public void eliminarNotas(Alumno alumno){
-        alumno.getListaNotas().clear();
-    }
-
-    //metodo listar alumnos aprobados que tienen media > 5.0
-    public void listarAprobados(){
+   //metodo añadir nota del alumno con el dni
+    public void añadirNota(String dni, double nota){
+        //buscar alumno y añadir nota
         for (Alumno alumno : listaAlumnos) {
-            if(alumno.calcularMedia()>5.0){
-                System.out.println(alumno.toString());
+            if(alumno.getDni().equals(dni)){
+                alumno.añadirNota(nota);
             }
         }
     }
 
-    //metodo listar alumnos suspensos media < 5.0
-    public void listarSuspensos(){
+    //metodo eliminar todas las notas de un alumno con dni
+    public void eliminarNotas(String dni){
+        //buscar alumno y eliminar notas
         for (Alumno alumno : listaAlumnos) {
-            if(alumno.calcularMedia()<5.0){
+            if(alumno.getDni().equals(dni)){
+                alumno.eliminarNotas(dni);
+            }
+        }
+    }
+
+
+    //metodo listar alumnos aprobados de un curso codigo curso que tienen media > 5.0
+    public void listarAprobados(String codigoCurso){
+        //buscar curso y mostrar alumnos aprobados
+        for (Alumno alumno : listaAlumnos) {
+            if(alumno.getCurso().getCodigo().equals(codigoCurso)){
+                if(alumno.calcularMedia()>5.0){
+                    System.out.println(alumno.toString());
+                }
+            }
+        }
+    }
+
+
+    //metodo listar alumnos suspensos de un curso codigo curso media < 5.0
+    public void listarSuspensos(String codigoCurso){
+        //buscar curso y mostrar alumnos suspensos
+        for (Alumno alumno : listaAlumnos) {
+            if(alumno.getCurso().getCodigo().equals(codigoCurso)){
+                if(alumno.calcularMedia()<5.0){
+                    System.out.println(alumno.toString());
+                }
+            }
+        }
+    }
+
+    //listar alumnos de un curso
+    public void listarAlumnosDeUnCurso(String codigoCurso){
+        for (Alumno alumno : listaAlumnos) {
+            if(alumno.getCurso().getCodigo().equals(codigoCurso)){
                 System.out.println(alumno.toString());
             }
         }

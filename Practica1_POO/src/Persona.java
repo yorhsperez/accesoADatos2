@@ -4,6 +4,12 @@ public class Persona {
     public String dni;
     public String telefono;
 
+    public Persona(String nombre, String dni, String telefono) {
+        this.nombre = nombre;
+        this.dni = dni;
+        this.telefono = telefono;
+    }
+
     public String getNombre() {
         return nombre;
     }
@@ -29,7 +35,5 @@ public class Persona {
     }
 
     //metodo toString
-    public String toString(){
-        return "Nombre: "+nombre+" DNI: "+dni+" Telefono: "+telefono;
-    }
+
 }

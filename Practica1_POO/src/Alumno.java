@@ -3,7 +3,14 @@ import java.util.ArrayList;
 public class Alumno extends Persona {
    //atributos curso y lista de notas arrayList double
     private Curso curso;
-    private ArrayList<Double> listaNotas;
+    private ArrayList<Double> listaNotas = new ArrayList<>();
+
+    public Alumno(String nombre,String dni,String telefono,Curso curso){
+        super(nombre,dni,telefono);
+        this.curso=curso;
+
+    }
+
 
     //getter y setter
     public Curso getCurso() {
@@ -21,6 +28,7 @@ public class Alumno extends Persona {
 
     //metodo añadir nota double a listaNotas
     public void añadirNota(double nota){
+
         listaNotas.add(nota);
     }
     //metodo eliminar todas las notas del listaNotas con parametro DNI de Persona
@@ -39,10 +47,11 @@ public class Alumno extends Persona {
         return media/listaNotas.size();
     }
 
-    //metodo toString de Alumno
+   //metodo toString de Alumno con datos de persona
     public String toString(){
-        return "Nombre: "+nombre+" DNI: "+dni+" Telefono: "+telefono+" Curso: "+curso.getNombre()+" Notas: "+listaNotas;
+        return "Alumno{" + "nombre=" + nombre + ", dni=" + dni + ", telefono=" + telefono + ", curso=" + curso +'}';
     }
+
 
 }
 
