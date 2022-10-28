@@ -2,23 +2,33 @@ import java.util.ArrayList;
 
 public class Profesor extends Persona {
 
-    private String esTutorDelCurso="";
+    String respuestaTutor="NO";
     private Curso curso;
+    String codCurso;
    private ArrayList<String>listaDeAsignaturas=new ArrayList<>();
 
-    public Profesor(String nombre, String dni, String telefono,Curso curso) {
+   public Profesor(String nombre,String dni,String telefono){
+       super(nombre,dni,telefono);
+
+   }
+
+    public Profesor(String nombre, String dni, String telefono,String curso) {
 
         super(nombre, dni, telefono);
-        this.curso = curso;
+        this.codCurso = curso;
     }
 
-    //geter y setter de esTutorDelCurso
-    public String getEsTutorDelCurso() {
-        return esTutorDelCurso;
+    public Profesor() {
+
     }
 
-    public void setEsTutorDelCurso(String esTutorDelCurso) {
-        this.esTutorDelCurso = esTutorDelCurso;
+    //setter respuestaTutor
+    public void setRespuestaTutor(String respuestaTutor) {
+        this.respuestaTutor = respuestaTutor;
+    }
+    //getter respuestaTutor
+    public String getRespuestaTutor() {
+        return respuestaTutor;
     }
 
     public Curso getCurso() {
@@ -47,7 +57,16 @@ public class Profesor extends Persona {
     }
 
 
-   //Este metodo solo puede tener un profesor tutor del curso
+
+//getter codCurso
+    public String getCodCurso() {
+        return codCurso;
+    }
+    //setter codCurso
+    public void setCodCurso(String codCurso) {
+        this.codCurso = codCurso;
+    }
+
 
 
 
@@ -67,8 +86,8 @@ public class Profesor extends Persona {
                 "nombre='" + getNombre() + '\'' +
                 ", dni='" + getDni() + '\'' +
                 ", telefono='" + getTelefono() + '\'' +
-                ", curso=" + curso +
-                ", Es Tutor=" + esTutorDelCurso +
+                ", curso=" + codCurso +
+                ", Es Tutor=" + respuestaTutor  +
                 '}';
     }
 }

@@ -10,6 +10,10 @@ public class Persona {
         this.telefono = telefono;
     }
 
+    public Persona(){
+
+    }
+
     public String getNombre() {
         return nombre;
     }

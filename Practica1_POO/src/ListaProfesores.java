@@ -1,10 +1,12 @@
 import java.util.ArrayList;
+import java.util.Objects;
 
 public class ListaProfesores implements ILista {
     //arrayList de profesores
 
 
     private ArrayList<Profesor> listaProfesores = new ArrayList<>();
+    ListaCursos listaCursos = new ListaCursos();
 
     public void gestionProfesores() {
         System.out.println("---------GESTION DE PROFESORES---------");
@@ -83,14 +85,15 @@ public class ListaProfesores implements ILista {
     //metodo añadir tutor solo uno por codigo de curso
 
 
-    //metodo para listar profesores tutores
-public void listarProfesoresTutores() {
+    //metodo listar profesores tutores
+    public void listarProfesoresTutores() {
         for (Profesor profesor : listaProfesores) {
-            if (profesor.getEsTutorDelCurso().equalsIgnoreCase("si")) {
-                System.out.println(profesor);
+            if (profesor.getRespuestaTutor().equalsIgnoreCase("si")) {
+                System.out.println(profesor.toString());
             }
         }
     }
+
 
     //metodo para añadir asignaturas a un profesor
     public void añadirAsignatura(String dni, String asignatura) {
@@ -110,31 +113,10 @@ public void listarProfesoresTutores() {
         }
     }
 
-
-    public void crearTutorDelCurso(String dni, String respuesta, String codigoCurso) {
-        //Primero buscar los profesores de un curso concreto
-
-        if (respuesta.equalsIgnoreCase("si")) {
-
-
-            for (Profesor profesor : listaProfesores) {
-                if (profesor.getCurso().getCodigo().equals(codigoCurso)) {
-                    //ahora comprobar si el profesor es tutor del curso
-                    if (profesor.getDni().equalsIgnoreCase(dni)) {
-                        if (profesor.getCurso().isTieneTutor() == 1) {
-                            profesor.setEsTutorDelCurso("si");
-                            profesor.getCurso().setTieneTutor(1 + 1);
-
-                        } else {
-                            profesor.setEsTutorDelCurso("no");
-                        }
-                    }
-                }
-
-            }
-        }
+    public void esTutor() {
+        System.out.println(listaCursos.getListaCursos().size());
+    }
 
     }
 
 
-}

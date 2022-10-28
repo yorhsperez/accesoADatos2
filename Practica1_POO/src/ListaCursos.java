@@ -2,10 +2,12 @@ import java.util.ArrayList;
 
 public class ListaCursos implements ILista {
     //arrayList de Cursos
-    private ArrayList<Curso> listaCursos=new ArrayList<>();
+    private ArrayList<Curso> listaCursos = new ArrayList<>();
+
+
 
     //metodo lista submenu
-    public void gestionDeCursos(){
+    public void gestionDeCursos() {
         System.out.println("---------GESTION DE CURSOS---------");
         System.out.println("1. Añadir curso");
         System.out.println("2. Eliminar curso");
@@ -17,11 +19,9 @@ public class ListaCursos implements ILista {
     }
 
 
-
-
     @Override
     public void añadir(Object objeto) {
-        listaCursos.add((Curso)objeto);
+        listaCursos.add((Curso) objeto);
     }
 
     @Override
@@ -38,7 +38,7 @@ public class ListaCursos implements ILista {
     public void eliminar(String codigoCurso) {
         //eliminar curso
         for (Curso curso : listaCursos) {
-            if(curso.getCodigo().equals(codigoCurso)){
+            if (curso.getCodigo().equals(codigoCurso)) {
                 listaCursos.remove(curso);
             }
         }
@@ -54,6 +54,28 @@ public class ListaCursos implements ILista {
 
     }
 
-    //listar alumnos de un curso
+    ///getter arraylist cursos
+    public ArrayList<Curso> getListaCursos() {
+        return listaCursos;
+    }
+
+
+    //metodo para volver a true curso.isHayTutor() a true solo si esta en false
+    public void volverATrue(String codigoCurso,String dniProfesor) {
+        for (Curso curso : listaCursos) {
+            if (curso.getCodigo().equalsIgnoreCase(codigoCurso)) {
+                if(!curso.isHayTutor()){
+                    curso.setHayTutor(true);
+                    curso.setDniTutor(dniProfesor);
+
+                }else {
+                    System.out.println("Ya hay un tutor asignado a este curso");
+                }
+
+            }
+        }
+    }
+
+    //metodo para mostrar el dni del tutor de un curso
 
 }

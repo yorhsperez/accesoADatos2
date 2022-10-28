@@ -3,21 +3,35 @@ public class Curso {
     private String codigo;
     private String nombre;
 
-    private int tieneTutor=1;
+    private String dniTutor;
+
+    private boolean hayTutor=false;
+
+
 
     public Curso(String codigo, String nombre) {
         this.codigo = codigo;
         this.nombre = nombre;
     }
 
-    //setter tutor tieneTutor
-    public void setTieneTutor(int tieneTutor) {
-        this.tieneTutor = tieneTutor;
+    //setter dniTutor
+    public void setDniTutor(String dniTutor) {
+        this.dniTutor = dniTutor;
     }
-    //getter tutor tieneTutor
-    public int isTieneTutor() {
-        return tieneTutor;
+    //getter dniTutor
+    public String getDniTutor() {
+        return dniTutor;
     }
+
+//geter y setter deHayTutor
+    public boolean isHayTutor() {
+        return hayTutor;
+    }
+    //setter deHayTutor
+    public void setHayTutor(boolean hayTutor) {
+        this.hayTutor = hayTutor;
+    }
+
 
 
     public String getCodigo() {
@@ -40,7 +54,7 @@ public class Curso {
 
     //metodo toString
     public String toString(){
-        return "Codigo: "+codigo+" Nombre: "+nombre;
+        return "Codigo: "+codigo+" Nombre Curso: "+nombre+" Hay Tutor: "+hayTutor;
     }
 
 

@@ -1,3 +1,4 @@
+import javax.swing.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -65,6 +66,10 @@ public class Principal {
                 break;
             case 3:
                 listaCursos.listar();
+
+
+               //mostrar en un JOptionPane
+
                 break;
             case 4:
                 System.out.println("Introduzca el codigo del curso:");
@@ -176,13 +181,12 @@ public class Principal {
                     String telefonoProfesor = sc.nextLine();
                     System.out.println("Introduce el codigo del curso:");
                     String codigoCurso = sc.nextLine();
-                    System.out.println("Introduce el nombre del curso:");
-                    String nombreCurso = sc.nextLine();
-                    listaProfesores.añadir(new Profesor(nombreProfesor, dniProfesor, telefonoProfesor, new Curso(codigoCurso, nombreCurso)));
+
+                    listaProfesores.añadir(new Profesor(nombreProfesor, dniProfesor, telefonoProfesor,codigoCurso));
                     System.out.println("Es tutor del curso? (SI/NO)");
                     String tutor = sc.nextLine();
-
-                    listaProfesores.crearTutorDelCurso(dniProfesor, tutor,codigoCurso);
+                    listaCursos.volverATrue(codigoCurso,dniProfesor);
+                   // listaProfesores.comprobarTutor(dniProfesor);
 
                     break;
                 case 2:
