@@ -56,6 +56,13 @@ public class Profesor extends Persona {
         listaDeAsignaturas.remove(asignatura);
     }
 
+    //metodo para mostrar asignaturas
+    public void mostrarAsignaturas(){
+        for (String asignatura : listaDeAsignaturas) {
+            System.out.println(asignatura);
+        }
+    }
+
 
 
 //getter codCurso
